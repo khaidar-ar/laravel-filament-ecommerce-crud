@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ProductModel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class OrderItemModel extends Model
 {
     use HasFactory;
     protected $table = 'order_item';
+
+    public function product(){
+        $this->belongsTo(ProductModel::class)
+    }
 }

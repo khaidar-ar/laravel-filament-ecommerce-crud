@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\OrderItemModel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ProductModel extends Model
 {
     use HasFactory;
+
+    public function order_item(){
+        $this->hasMany(OrderItemModel::class);
+    }
 }
