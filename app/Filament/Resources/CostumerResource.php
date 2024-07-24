@@ -7,7 +7,9 @@ use Filament\Tables;
 use App\Models\Costumer;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Actions\Action;
 use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\CostumerResource\Pages;
@@ -38,16 +40,19 @@ class CostumerResource extends Resource
         return $table
             ->columns([
                 //
-                Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('email')->sortable(),
                 Tables\Columns\TextColumn::make('phone'),
-                Tables\Columns\TextColumn::make('address')
+                Tables\Columns\TextColumn::make('address')->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('delete')
+                ->requiresConfirmation()
+                ->action(fn (Post $record) => $record->delete())
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
