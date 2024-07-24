@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('order_item', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('quantity');
+            $table->integer('subtotal');
+            $table->unsignedBigInteger('product_id');
+            // $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
         });
     }
 
