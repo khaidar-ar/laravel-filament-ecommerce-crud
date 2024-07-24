@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('price');
             $table->string('description',500);
             $table->integer('stock_quantity');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 
