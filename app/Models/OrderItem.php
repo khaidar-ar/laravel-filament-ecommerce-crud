@@ -12,6 +12,6 @@ class OrderItem extends Model
     protected $table = 'order_item';
 
     public function product(){
-        $this->belongsTo(ProductModel::class)
+        $this->belongsTo(ProductModel::class);
     }
 }

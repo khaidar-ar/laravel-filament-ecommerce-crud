@@ -10,11 +10,13 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $table = 'order';
+
     public function costumer(){
         $this->belongsTo(CostumerModel::class);
     }
 
-    public function costumer(){
+    public function order_item(){
         $this->hasOne(OrderItemModel::class);
     }
 }

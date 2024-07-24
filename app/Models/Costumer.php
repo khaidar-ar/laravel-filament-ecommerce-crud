@@ -11,7 +11,7 @@ class Costumer extends Model
     use HasFactory;
 
 
-
+    protected $table = 'costumer';
     public function order(){
         $this->hasMany(OrderModel::class);
     }
