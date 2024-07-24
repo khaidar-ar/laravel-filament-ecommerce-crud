@@ -12,8 +12,14 @@ class Costumer extends Model
 
 
     protected $table = 'costumer';
+    protected $fillable = [
+        'name',
+        'email',
+        'address',
+        'phone'
+    ];
     public function order(){
-        $this->hasMany(OrderModel::class);
+        $this->hasMany(Order::class);
     }
 
 }

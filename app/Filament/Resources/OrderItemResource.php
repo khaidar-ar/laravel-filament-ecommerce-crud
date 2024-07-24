@@ -24,6 +24,10 @@ class OrderItemResource extends Resource
         return $form
             ->schema([
                 //
+                Forms\Components\TextInput::make('quantity'),
+                Forms\Components\TextInput::make('subtotal'),
+                Forms\Components\TextInput::make('product_id'),
+
             ]);
     }
 

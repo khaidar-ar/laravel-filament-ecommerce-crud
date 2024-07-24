@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\OrderResource\Pages;
-use App\Filament\Resources\OrderResource\RelationManagers;
-use App\Models\Order;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Order;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Forms\Components\TextInput;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\OrderResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\OrderResource\RelationManagers;
 
 class OrderResource extends Resource
 {
@@ -24,6 +25,11 @@ class OrderResource extends Resource
         return $form
             ->schema([
                 //
+                Forms\Components\TextInput::make('date'),
+                Forms\Components\TextInput::make('total_amount'),
+                Forms\Components\TextInput::make('status'),
+                Forms\Components\TextInput::make('product_id'),
+                Forms\Components\TextInput::make('costumer_id'),
             ]);
     }
 
